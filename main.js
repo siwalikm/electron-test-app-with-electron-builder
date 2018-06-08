@@ -1,33 +1,64 @@
 // Modules to control application life and create native browser window
-const {app, BrowserWindow} = require('electron')
+const {app, BrowserWindow} = require('electron');
+const appVersion = require('./package.json').version;
+const appRepo = require('./package.json').repository;
+const os = require('os').platform();
+var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
-let mainWindow
+let mainWindow;
+
+  function updateAlert() {
+    if(os === 'darwin') {
+      const feed = `${appRepo}/dist/github/latest-mac.json`;
+      
+      var xhr = new XMLHttpRequest();
+      
+      xhr.addEventListener("readystatechange", function () {
+        if (this.readyState === 4) {
+          console.log('....xxx....', this.responseText);
+        }
+      });
+      
+      xhr.open("GET", "https://raw.githubusercontent.com/siwalikm/coffitivity-offline/v1.0.2/.gitignore");
+      
+      xhr.send();
+
+    }
+  }
 
 function createWindow () {
   // Create the browser window.
-  mainWindow = new BrowserWindow({width: 800, height: 600})
+  mainWindow = new BrowserWindow({width: 800, height: 600});
 
   // and load the index.html of the app.
-  mainWindow.loadFile('index.html')
+  mainWindow.loadFile('index.html');
 
   // Open the DevTools.
-  // mainWindow.webContents.openDevTools()
+  mainWindow.webContents.openDevTools();
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {
     // Dereference the window object, usually you would store windows
     // in an array if your app supports multi windows, this is the time
     // when you should delete the corresponding element.
-    mainWindow = null
+    mainWindow = null;
   })
-}
+};
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-app.on('ready', createWindow)
+app.on('ready', ()=> {
+  createWindow();
+  updateAlert();
+  console.log('appVersion', appVersion);
+  console.log('appRepo', appRepo);
+  console.log('os', os);
+});
+
+
 
 // Quit when all windows are closed.
 app.on('window-all-closed', function () {

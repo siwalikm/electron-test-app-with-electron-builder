@@ -2,6 +2,8 @@
   "name": "electron-test-app-with-electron-builder",
   "version": "1.0.0",
   "description": "A minimal Electron application template along with electron builder configured",
+  "productName": "MyApp",
+  "author": "siwalik",
   "main": "main.js",
   "scripts": {
     "start": "npm install && electron ./",
@@ -44,10 +46,15 @@
     "demo",
     "electron-builder"
   ],
-  "author": "siwalik",
   "license": "CC0-1.0",
   "devDependencies": {
     "electron": "^2.0.0",
     "electron-builder": "^20.15.1"
+  },
+  "dependencies": {
+    "ajv": "^6.5.0",
+    "express": "^4.16.3",
+    "node": "^8.11.2",
+    "xmlhttprequest": "^1.8.0"
   }
 }

@@ -1,0 +1,10 @@
+version: 1.0.0
+files:
+  - url: electron-test-app-with-electron-builder-1.0.0-mac.zip
+    sha512: YV6LrvXRgwIUimRBwxRKYWT8QzSqIOpgIZJ/y3d4Dk64IiQO/0x/zk/OXPR/37lISWvrMNG9Cub21sVW/wfeFg==
+  - url: MyApp-1.0.0.dmg
+    sha512: okUA8ePtOo7UBvCp9gaTexUYCwDrM3uXOSLUILYhIWwZupo5NumuomzyA9uhnXGuMTHY6dyQu0ACuTRjgQ5e8w==
+    size: 59137903
+path: electron-test-app-with-electron-builder-1.0.0-mac.zip
+sha512: YV6LrvXRgwIUimRBwxRKYWT8QzSqIOpgIZJ/y3d4Dk64IiQO/0x/zk/OXPR/37lISWvrMNG9Cub21sVW/wfeFg==
+releaseDate: '2018-06-08T18:27:10.768Z'
