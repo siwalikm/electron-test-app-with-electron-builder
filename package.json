@@ -1,0 +1,53 @@
+{
+  "name": "electron-test-app-with-electron-builder",
+  "version": "1.0.0",
+  "description": "A minimal Electron application template along with electron builder configured",
+  "main": "main.js",
+  "scripts": {
+    "start": "npm install && electron ./",
+    "pack": "build --dir",
+    "dist": "build"
+  },
+  "build": {
+    "appId": "test",
+    "dmg": {
+      "contents": [
+        {
+          "x": 110,
+          "y": 150
+        },
+        {
+          "x": 240,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    },
+    "win": {
+      "target": "squirrel",
+      "icon": "build/icon.ico"
+    }
+  },
+  "repository": "https://github.com/siwalikm/electron-test-app-with-electron-builder",
+  "keywords": [
+    "Electron",
+    "quick",
+    "start",
+    "tutorial",
+    "demo",
+    "electron-builder"
+  ],
+  "author": "siwalik",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^2.0.0",
+    "electron-builder": "^20.15.1"
+  }
+}
